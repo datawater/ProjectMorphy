@@ -1,0 +1,13 @@
+name: project-morphy
+version: 0.0.1
+
+targets:
+  server:
+    main: src/main.cr
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+  
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3

@@ -1,0 +1,1 @@
+INSERT INTO Boards (Id BLOB, BoardNumber) VALUES (?, ?)
