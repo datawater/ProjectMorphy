@@ -1,5 +1,7 @@
-def main
-  puts "Hello, World"
-end
+require "kemal"
 
-main
+require "./tournament.cr"
+require "./register_board"
+require "./errors.cr"
+
+Kemal.run

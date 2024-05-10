@@ -1,39 +1,41 @@
-CREATE TABLE Board (
-    Id BLOB NOT NULL,
+CREATE TABLE Boards (
+  Id BLOB NOT NULL,
 
-    BoardNumber INT NOT NULL,
-    StartingClock INT,
-    CurrentClock INT,
-    
-    PlayerIdWhite BLOB,
-    PlayerIdBlack BLOB,
+  BoardNumber INT,
+  StartingClockWhite INT,
+  StartingClockBlack INT,
+  CurrentClockWhite INT,
+  CurrentClockBlack INT,
+  IncrementWhite INT,
+  IncrementBlack INT,
+  IncrementAfterMoveReached INT,
+  IncrementAfterMoveReachedAt INT,
 
-    GameId BLOB,
+  GameId BLOB,
 
-    PRIMARY KEY (Id),
-    FOREIGN KEY (PlayerIdWhite) REFERENCES Players(PlayedId),
-    FOREIGN KEY (PlayerIdBlack) REFERENCES Games(PlayedId)
+  PRIMARY KEY (Id),
+  FOREIGN KEY (GameId) REFERENCES Games(Id)
 );
 
 CREATE TABLE Players (
-    Id BLOB NOT NULL,
+  Id BLOB NOT NULL,
 
-    Name TEXT,
-    Rating INT,
+  Name TEXT,
+  Rating INT,
 
-    PRIMARY KEY (Id)
+  PRIMARY KEY (Id)
 );
 
 CREATE TABLE Games (
-    Id BLOB NOT NULL,
+  Id BLOB NOT NULL,
 
-    Pgn TEXT NOT NULL,
-    Result INT NOT NULL,
+  Pgn TEXT NOT NULL,
+  Result INT NOT NULL,
 
-    PlayerIdBlack BLOB,
-    PlayerIdWhite BLOB,
+  PlayerIdBlack BLOB,
+  PlayerIdWhite BLOB,
 
-    PRIMARY KEY (Id),
-    FOREIGN KEY (PlayerIdWhite) REFERENCES Players(PlayedId),
-    FOREIGN KEY (PlayerIdBlack) REFERENCES Players(PlayedId),
+  PRIMARY KEY (Id),
+  FOREIGN KEY (PlayerIdWhite) REFERENCES Players(PlayedId),
+  FOREIGN KEY (PlayerIdBlack) REFERENCES Players(PlayedId),
 );
