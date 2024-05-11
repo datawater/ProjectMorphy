@@ -14,9 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: ccorsi/setup-sqlite@v1.0.1
     - name: Install dependencies
-      run: shards install
+      run: apt install sqlite3 && shards install
     - name: Build (debug)
       run: make
     - name: Build (Release)
