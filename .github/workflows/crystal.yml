@@ -1,0 +1,22 @@
+name: Build (Debug and Release)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: shards install
+    - name: Build (debug)
+      run: make
+    - name: Build (Release)
+      run: make release
