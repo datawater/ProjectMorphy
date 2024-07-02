@@ -18,10 +18,10 @@ shards install
 
 Build (Dev)
 ```
-shards build
+make debug
 ```
 
 Build (Release)
 ```
-shards build -p -t -v --release --mcpu=native --threads=8
+make release
 ```
