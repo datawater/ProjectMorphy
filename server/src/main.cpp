@@ -1,5 +1,6 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
+
 #include <common/no_mangle.hpp>
 #include <cstdio>
 
@@ -15,7 +16,8 @@ int callback_function(Server *server, H40Bytes bytes,
     printf("Recieved %zu bytes.\n", bytes.second);
     fflush(stdout);
 
-    sendto(server->get_socketfd(), nullptr, 0, MSG_CONFIRM, (const struct sockaddr*) &cliaddr, sizeof(cliaddr));
+    sendto(server->get_socketfd(), nullptr, 0, MSG_CONFIRM,
+           (const struct sockaddr *)&cliaddr, sizeof(cliaddr));
 
     return 0;
 }

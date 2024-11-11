@@ -1,9 +1,9 @@
 #include "server.hpp"
 
+#include <arpa/inet.h>
 #include <netinet/in.h>
 #include <pthread.h>
 #include <sys/socket.h>
-#include <arpa/inet.h>
 
 #include <cassert>
 #include <chrono>
@@ -16,7 +16,8 @@
 #include "h4_types.hpp"
 
 void Server::server_loop() {
-    char *buffer = static_cast<char *>(malloc(sizeof(char) * H40_MAX_MESSAGE_LENGTH));
+    char *buffer =
+        static_cast<char *>(malloc(sizeof(char) * H40_MAX_MESSAGE_LENGTH));
     assert(buffer != nullptr);
 
     int sockfd = this->socketfd;
@@ -89,7 +90,7 @@ void Server::run() {
 
     char ip[INET_ADDRSTRLEN] = {0};
     u16 port;
-    
+
     inet_ntop(AF_INET, &this->serveraddr, ip, sizeof(ip));
     port = htons(this->serveraddr.sin_port);
 
