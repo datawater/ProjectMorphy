@@ -1,0 +1,4 @@
+*.o
+*.a
+server/server
+client/client

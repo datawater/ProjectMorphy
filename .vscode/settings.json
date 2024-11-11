@@ -1,0 +1,11 @@
+{
+    "clangd.fallbackFlags": [
+        "-I${workspaceFolder}/common",
+        "-I${workspaceFolder}",
+        "-I${workspaceFolder}/server/src/include",
+        "-I${workspaceFolder}/client/src/include",
+        "-DNO_MANGLE",
+    ],
+
+    "editor.autoClosingBrackets": "always",
+}
