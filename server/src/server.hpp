@@ -6,9 +6,6 @@
 #include <common/utils.hpp>
 #include <functional>
 #include <thread>
-#include <unordered_set>
-
-#include "client.hpp"
 
 #define H40_MAX_MESSAGE_LENGTH 256
 
@@ -18,8 +15,6 @@
 class Server {
    protected:
     std::atomic_bool running = false;
-
-    std::unordered_set<Client *> clients;
     RecieveCallbackFunc on_recieve_callback;
 
     struct sockaddr_in serveraddr;
@@ -48,5 +43,4 @@ class Server {
     H4_DEFINE_GETTER(struct sockaddr_in, serveraddr)
     H4_DEFINE_GETTER(int, socketfd)
     H4_DEFINE_GETTER_SETTER(RecieveCallbackFunc, on_recieve_callback)
-    H4_DEFINE_GETTER_CONST_PTR(std::unordered_set<Client *>, clients);
 };
