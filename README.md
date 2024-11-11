@@ -7,10 +7,10 @@ TODO
 ## Building
 
 ```
-make PROFILE=release server -B -j
+make PROFILE=release -B -j
 ```
 
 for debug builds:
 ```
-make server -B -j
+make -B -j
 ```
